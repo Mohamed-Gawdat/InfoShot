@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&family=Reggae+One&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <!-- animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+    <!--  -->
+    <title>Cyber Security InfoRoads</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="headerlogo" onclick="showPopup()">InfoRoads</h1>
+            <script>
+                function showPopup() {
+                    var popup = document.createElement('div');
+                    popup.classList.add('popup');
+
+                    var exitButton = document.createElement('button');
+                    exitButton.innerText = 'X';
+                    exitButton.classList.add('exit-button');
+                    exitButton.addEventListener('click', function () {
+                        document.body.removeChild(popup);
+                    });
+
+                    var popupContent = document.createElement('div');
+                    popupContent.classList.add('popup-content');
+                    popupContent.innerHTML = `
+                    <h3>Welcome to InfoRoads</h3>
+                    <p>Discover a world of knowledge.</p>
+                    <p>Our site offers Roadmaps in</p>
+                    <ul>
+                        <li>Cyber security</li>
+                        <li>Networking</li>
+                        <li>Programming</li>
+                    </ul>
+                    <p>With their diverse specialties, everything is available to you at no cost, and we guarantee you an ad-free experience!</p>
+                    <h3>Enjoy :)</h3>
+                    `;
+
+                    popup.appendChild(exitButton);
+                    popup.appendChild(popupContent);
+
+                    document.body.appendChild(popup);
+
+                    setTimeout(function () {
+                        document.body.removeChild(popup);
+                    }, 5000);
+                }
+            </script>
+            <!--  -->
+            <div class="links">
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul>
+                    <li><a href="books.html" target="_blank">Books</a></li>
+                    <li><a href="roadmaps.html" target="_blank">Roadmaps</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="timeline">
+            <div class="outer">
+                <h1 class="sptionalheading">Cyber security Roadmap</h1>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Basics</h3>
+                        <ul>
+                            <li>Fundamental IT Skills
+                            </li>
+                            <li>Computer Hardware Components
+                            </li>
+                                <li>OS-Independent Troubleshooting
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Operating Systems</h3>
+                        <ul>
+                            <li>Linux
+                            </li>
+                            <li>Windows
+                            </li>
+                            <li>MacOS</li>
+                                <li>Learn following for Each
+                                    <ul>
+                                        <li>Installation and Configuration
+                                        </li>
+                                        <li>Different Versions and Differences</li>
+                                        <li>Navigating using GUI and CLI</li>
+                                        <li>Understand Permissions</li>
+                                        <li>Installing Software and Applications</li>
+                                        <li>Performing CRUD on Files</li>
+                                        <li>Troubleshooting</li>
+                                        <li>Common Commands</li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Common Distros for Hacking</h3>
+                        <ul>
+                        <li>Penetration testing
+                            <ul>
+                                <li>Kali-Linux (Recommended)</li>
+                                <li>Parrot Security</li>
+                                <li>ArchStrike</li>
+                            </ul>
+                        </li>
+                        <li>Privacy and security (Tor encryption)
+                            <ul>
+                                <li>Tails (Recommended)</li>
+                                <li>Kodachi</li>
+                                <li>Qubes OS</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Networking Knowledge</h3>
+                        <ul>
+                        <li>Understand
+                            <ul>
+                                <li>The OSI model</li>
+                                <li>Networking terminology</li>
+                                <li>Network types</li>
+                                <li>Network devices</li>
+                                <li>Network Topologies</li>
+                            </ul>
+                        </li>
+                            <li>Basics of Subnetting</li>
+                            <li>Common Protocols and their Uses
+                            </li>
+                            <li>Common Ports and their Uses</li>
+                        <li>SSL and TLS Basics</li>
+                        <li>Basics of NAS and SAN</li>
+                        <li>Others (you will learn more in the courses below)</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Networking Tools</h3>
+                        <ul>
+                                <li>Packet Sniffers
+                                    <ul>
+                                        <li>Wireshark</li>
+                                        <li>tcpdump</li>
+                                        <li>Ettercap</li>
+                                    </ul>
+                                </li>
+                                <li>Port Scanners
+                                    <ul>
+                                        <li>Nmap</li>
+                                        <li>Zenmap (A GUI front-end for Nmap)</li>
+                                        <li>Masscan</li>
+                                    </ul>
+                                </li>
+                                <li>Protocol Analyzers
+                                    <ul>
+                                        <li>Wireshark</li>
+                                        <li>tcpdump</li>
+                                        <li>NetworkMiner</li>
+                                    </ul>
+                                </li>
+                                <li>Burp Suite</li>
+                                <li>Snort</li>
+                                <li>Aircrack-ng</li>
+                                <li>Nessus</li>
+                                <li>Others (you will learn more in the courses below)</li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Virtualization</h3>
+                        <ul>
+                        <li>Common virtualization technologies (learn how to use one)
+                            <ul>
+                                <li>VMWare (Recommended)</li>
+                                <li>VirtualBox</li>
+                                <li>esxi</li>
+                                <li>proxmox</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Security Skills and Knowledge</h3>
+                        <ul>
+                        <li>Attack Types and Differences
+                            <ul>
+                                <li>Phishing vs Vishing vs Whaling vs Smishing</li>
+                                <li>Spam vs Spim</li>
+                                <li>Brute Force vs Password Spray</li>
+                                <li>Shoulder Surfing</li>
+                                <li>Zero Day</li>
+                            </ul>
+                        </li>
+                        <li>Common Network Based Attacks
+                            <ul>
+                                <li>DoS vs DDoS</li>
+                                <li>Spoofing</li>
+                                <li>Evil Twin</li>
+                                <li>Deauth Attack</li>
+                            </ul>
+                        </li>
+                        <li>Understand 
+                            <ul>
+                                <li>Secure vs Unsecure Protocols</li>
+                                <li>The Incident Response Process</li>
+                                <li>Understand Threat Classification</li>
+                                <li>Understand Common Tools</li>
+                                <li>Tools for Incident Response and Discovery</li>
+                                <li>Frameworks</li>
+                            </ul>
+                            <li>Learn how to find and use logs</li>    
+                            <li>Others (you will learn more in the courses below)</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Cloud skills and Knowledge</h3>
+                        <ul>
+                        <li>Understand
+                            <ul>
+                                <li>Concepts of security in the cloud</li>
+                                <li>Basics and general flow of deploying in the cloud</li>
+                                <li>The differences between cloud and on-premises</li>
+                                <li>Cloud Services</li>
+                                <li>Cloud Models</li>
+                            </ul>
+                        </li>
+                        <li>Common Cloud Environments</li>
+                        <li>Common Cloud Storage</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Programming Skills and Knowledge (Optional But Recommended)</h3>
+                        <ul>
+                        <li>Python (Python is widely used in cybersecurity)
+                        </li>
+                        <li>Java (Java is known for its security features)</li>
+                        <li>C/C++ (Many security tools and frameworks are built using C/C++.)</li>
+                        <li>Bash scripting ( Bash scripting is important for automating tasks.)</li>
+                        <li>PowerShell (PowerShell is a scripting language used in Windows environments.)</li>
+                        <li>Swift (Swift is the primary programming language used for macOS and iOS app development.)</li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">Certifications/Courses</h3>
+                        <ul>
+                        <li>Beginner Certifications
+                            <ul>
+                                <li>CompTIA A+</li>
+                                <li>CompTIA Network+</li>
+                                <li>CompTIA Linux+</li>
+                                <li>CompTIA Security+</li>
+                                <li>CCNA</li>
+                            </ul>
+                        <li>Advanced Certifications
+                            <ul>
+                                <li>OSCP</li>
+                                <li>CEH</li>
+                                <li>GSEC</li>
+                                <li>CREST</li>
+                                <li>CISSP</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                    <div class="tip">
+                    <p class="board-p"><strong>Note:</strong> At the end of the roadmap, it is important to keep in mind that when you reach an advanced level, you may need a little more than what was mentioned above. This is due to the fact that the field of cybersecurity is constantly developing and renewing. However, this roadmap contains what is related to the beginner and advanced levels at the present time. </p>
+                </div>

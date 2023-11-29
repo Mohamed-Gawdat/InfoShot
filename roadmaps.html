@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&family=Reggae+One&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <!-- animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!--  -->
+    <script src="/MouseTracker.js"></script>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>InfoRoads</title>
+</head>
+
+<body class="ExMouseTracker">
+    <div class="header">
+        <div class="container">
+            <h1 class="headerlogo" onclick="showPopup()">InfoRoads</h1>
+            <script>
+                function showPopup() {
+                    var popup = document.createElement('div');
+                    popup.classList.add('popup');
+
+                    var exitButton = document.createElement('button');
+                    exitButton.innerText = 'X';
+                    exitButton.classList.add('exit-button');
+                    exitButton.addEventListener('click', function () {
+                        document.body.removeChild(popup);
+                    });
+
+                    var popupContent = document.createElement('div');
+                    popupContent.classList.add('popup-content');
+                    popupContent.innerHTML = `
+                    <h3>Welcome to InfoRoads</h3>
+                    <p>Discover a world of knowledge.</p>
+                    <p>Our site offers Roadmaps in</p>
+                    <ul>
+                        <li>Cyber security</li>
+                        <li>Networking</li>
+                        <li>Programming</li>
+                    </ul>
+                    <p>With their diverse specialties, everything is available to you at no cost, and we guarantee you an ad-free experience!</p>
+                    <h3>Enjoy :)</h3>
+                    `;
+
+                    popup.appendChild(exitButton);
+                    popup.appendChild(popupContent);
+
+                    document.body.appendChild(popup);
+
+                    setTimeout(function () {
+                        document.body.removeChild(popup);
+                    }, 5000);
+                }
+            </script>
+            <!--  -->
+            <div class="links">
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul>
+                    <li><a href="books.html" target="_blank">Books</a></li>
+                    <li><a href="roadmaps.html" target="_blank">Roadmaps</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="board">
+            <h1 class="sptionalheading">InfoRoadmaps</h1>
+            <ul class="button-list">
+                <li><a href="CyberSecR.html">Cyber Security</a></li>
+            </ul>
+        </div>
+        <p class="consoll"></p>
+    </div>
+</body>
+
+</html>

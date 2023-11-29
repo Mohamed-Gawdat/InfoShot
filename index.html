@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&family=Reggae+One&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- ******************************************* -->
+    <link rel="icon" href="/amiges/favicon.png" type="image/x-icon">
+    <!-- ******************************************* -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ******************************************* -->
+    <title>InfoShot</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="headerlogo" onclick="showPopup()">InfoShot</h1>
+            <script>
+                function showPopup() {
+                    var popup = document.createElement('div');
+                    popup.classList.add('popup');
+
+                    var exitButton = document.createElement('button');
+                    exitButton.innerText = 'X';
+                    exitButton.classList.add('exit-button');
+                    exitButton.addEventListener('click', function () {
+                        document.body.removeChild(popup);
+                    });
+
+                    var popupContent = document.createElement('div');
+                    popupContent.classList.add('popup-content');
+                    popupContent.innerHTML = `
+                    <h3>Welcome to InfoShot</h3>
+                    <p>Discover a world of knowledge.</p>
+                    <p>Our site offers</p>
+                    <ul>
+                        <li>Books</li>
+                        <li>Roadmaps</li>
+                        <li>Tools</li>
+                    </ul>
+                    <p>With their diverse specialties, everything is available to you at no cost, and we guarantee you an ad-free experience!</p>
+                    <h3>Enjoy :)</h3>
+                    `;
+
+                    popup.appendChild(exitButton);
+                    popup.appendChild(popupContent);
+
+                    document.body.appendChild(popup);
+
+                    setTimeout(function () {
+                        document.body.removeChild(popup);
+                    }, 5000);
+                }
+            </script>
+            <!--  -->
+            <div class="links">
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul>
+                    <li><a href="books.html" target="_blank">Books</a></li>
+                    <li><a href="roadmaps.html" target="_blank">Roadmaps</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- **************************************************** -->
+    <div class="container">
+        <div class="intro-text">
+            <h1 id="main-heading">Welcome <sub>_<sup>:)</sup></sub></h1>
+            <div class="search-bar">
+                <div class="input-group">
+                    <form action="javascript:void(0);" onsubmit="search();">
+                        <input type="text" placeholder="Search..." id="searchInput" aria-label="Search Input"
+                            oninput="checkInput();" required>
+                        <button type="submit" aria-label="Search Button">Search</button>
+                    </form>
+                </div>
+                <div id="searchResults" style="display: none;"></div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('searchForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                search();
+            });
+
+            document.getElementById('searchInput').addEventListener('input', function (event) {
+                var searchInput = event.target.value.toLowerCase();
+                if (!searchInput.trim()) {
+                    document.getElementById('searchResults').style.display = "none";
+                    return; 
+                }
+            });
+
+            function search() {
+                var searchInput = document.getElementById('searchInput').value.toLowerCase();
+                if (!searchInput.trim()) {
+                    document.getElementById('searchResults').style.display = "none";
+                    return; 
+                }
+
+                var links = Array.from(document.getElementsByTagName('a'));
+                var searchResults = document.getElementById('searchResults')
+                var matchedLinks = links.filter(function (link) {
+                    var linkText = link.innerText.toLowerCase();
+                    return linkText.includes(searchInput);
+                });
+
+                searchResults.innerHTML = '';
+
+                if (matchedLinks.length) {
+                    matchedLinks.forEach(function (link) {
+                        var linkExists = Array.prototype.some.call(searchResults.children, function (child) {
+                            return child.innerHTML === link.outerHTML;
+                        });
+                        if (!linkExists) {
+                            var li = document.createElement('li');
+                            li.innerHTML = link.outerHTML;
+                            searchResults.appendChild(li);
+                        }
+                    });
+                } else {
+                    searchResults.innerHTML = "<p>No results found :(</p>";
+                }
+                searchResults.style.display = "block";
+            }
+
+            function checkInput() {
+                var searchInput = document.getElementById('searchInput').value;
+                if (searchInput === '') {
+                    document.getElementById('searchResults').style.display = "none";
+                }
+            }
+        </script>
+        <h1 class="sptionalheading">Features</h1>
+        <div class="features">
+            <div class="contanier">
+                <div class="Fea">
+                    <img src="./amiges/roadmap-2.png" alt="roadmap">
+                    <h2>Road maps</h2>
+                    <p>Our website provides simplified road maps from the best available options on the internet. We
+                        understand the distractions and time wasted by the abundance of choices. Our curated
+                        collection ensures you quickly find the most suitable road map for your needs.</p>
+                </div>
+                <div class="Fea">
+                    <img src="./amiges/book.png" alt="fast">
+                    <h2>Free Books</h2>
+                    <p>Our website provides a curated collection of books on cybersecurity, networking, programming, and more. We prioritize high quality, accurate and premium content over quantity. We firmly believe that the value of our group lies in the accuracy and quality of the content you provide, not its quantity.</p>
+                </div>
+                <div class="Fea">
+                    <img src="./amiges/process.png" alt="tools">
+                    <sup><span></span> Soon</sup>
+                    <h2>Useful tools</h2>
+                    <p>Our website provides the resources and information you need to achieve efficiency and
+                        high-quality results. By staying updated with the latest tools and resources available on our
+                        platform, you can boost your productivity by at least 10%.</p>
+                </div>
+            </div>
+        </div>
+        <div class="board-books">
+            <h1 class="sptionalheading">InfoBooks</h1>
+            <ul class="button-list">
+                <li><a href="books.html#Cybersec" target="_blank">Cyber Security</a></li>
+                <li><a href="books.html#Networking" target="_blank">Networking</a></li>
+                <li><a href="books.html#Programming" target="_blank">Programming</a></li>
+            </ul>
+        </div>
+        <p class="board-p">At <strong>InfoBooks</strong>, our focus is on providing the highest quality books in the
+            fields of Cyber Security, Networking, Programming, and more. We believe that the value of our collection
+            lies not in its quantity, but in the thoroughness and excellence of the content it offers. Our team is
+            dedicated to curating the best books available, ensuring that they are reliable, up-to-date, and
+            comprehensive. We prioritize the quality of our books above all else, so you can trust that the information
+            you find in InfoBooks is accurate and valuable.</p>
+        <div class="board">
+            <h1 class="sptionalheading">InfoRoadmaps</h1>
+            <ul class="button-list">
+                <li><a href="CyberSecR.html" target="_blank">Cyber Security</a></li>
+            </ul>
+            <p></span> Soon More Roadmaps <span><i class="fa-regular fa-face-smile-beam"></i></span> </p>
+        </div>
+        <p class="board-p">At <strong>InfoRoads</strong>, we understand the challenges of navigating through a plethora
+            of options and wasting time on distractions. That's why our website provides simplified roadmaps sourced
+            from the best available options on the internet. Our curated collection ensures that you quickly find the
+            most suitable roadmap for your needs. We prioritize efficiency and relevance, saving you time and helping
+            you easily identify the best path to follow.</p>
+<hr>
+    <footer id="about">
+        <p style="text-align: center;">&copy; 2023 InfoShot. All rights reserved.</p>
+</body>
+
+</html>

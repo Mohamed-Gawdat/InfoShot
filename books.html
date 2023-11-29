@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&family=Reggae+One&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;800&display=swap" rel="stylesheet" />
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tiptool -->
+    <link rel="stylesheet" href="/css/node_modules/hint.css/hint.min.css" />
+    <!-- animate import online -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Animation 2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="/amiges/favicon.ico" type="image/x-icon" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- star  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<!--  -->
+<title>InfoBooks</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="headerlogo" onclick="showPopup()">InfoBooks</h1>
+            <script>
+                function showPopup() {
+                    var popup = document.createElement("div");
+                    popup.classList.add("popup");
+
+                    var exitButton = document.createElement("button");
+                    exitButton.innerText = "X";
+                    exitButton.classList.add("exit-button");
+                    exitButton.addEventListener("click", function () {
+                        document.body.removeChild(popup);
+                    });
+
+                    var popupContent = document.createElement("div");
+                    popupContent.classList.add("popup-content");
+                    popupContent.innerHTML = `
+                    <h3>Welcome to InfoBooks</h3>
+                    <p>Discover a world of knowledge.</p>
+                    <p>Our website offers free books in the fields of</p>
+                    <ul>
+                        <li>Cyber security</li>
+                        <li>Networking</li>
+                        <li>Programming</li>
+                    </ul>
+                    <p>With their diverse specialties, everything is available to you at no cost, and we guarantee you an ad-free experience!</p>
+                    <h3>Enjoy :)</h3>`;
+
+                    popup.appendChild(exitButton);
+                    popup.appendChild(popupContent);
+
+                    document.body.appendChild(popup);
+
+                    setTimeout(function () {
+                        document.body.removeChild(popup);
+                    }, 5000);
+                }
+            </script>
+            <div class="links">
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul>
+                    <li><a href="#Cybersec">Cyber Security Books</a></li>
+                    <li><a href="#Networking">Networking Books</a></li>
+                    <li><a href="#Programming">Programming Books</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            for (var i = 0; i < 3; i++) {
+                var bookCards = document.querySelectorAll('.book-section')[i].getElementsByClassName('book-card');
+                var bookCount = bookCards.length;
+                document.getElementById(`bookCount${i + 1}`).innerText = bookCount;
+            }
+        });
+    </script>
+    <!--  -->
+    <script>
+        let scrollActive = true;
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const elements = [
+                document.querySelector(".A"),
+                document.querySelector(".B"),
+                document.querySelector(".C")
+            ];
+
+            elements.forEach((elem) => {
+                if (elem) {
+                    elem.addEventListener("wheel", e => {
+                        if (scrollActive) {
+                            const toScroll = e.deltaY * 1;
+                            elem.scrollLeft += toScroll;
+                            e.preventDefault();
+                        }
+                    });
+                }
+            });
+            const dropDown = document.getElementById("display-mode");
+
+            dropDown.addEventListener("change", function () {
+                const bookSections = document.querySelectorAll("#View-Mode");
+
+                bookSections.forEach((bookSection) => {
+                    if (this.value === "normal") {
+                        bookSection.classList.add("normal");
+                        scrollActive = false;
+                    } else {
+                        bookSection.classList.remove("normal");
+                        scrollActive = true;
+                    }
+                });
+            });
+        });
+    </script>
+    <!--  -->
+    <div class="container">
+        <div class="viwe-mode">
+            <label for="display-mode" id="display-mode-label">View Mode:</label>
+            <select id="display-mode" aria-describedby="display-mode-label">
+                <option value="modern">Modern</option>
+                <option value="normal">Normal</option>
+            </select>
+        </div>
+        <!--  -->
+        <h1 class="sptionalheading" id="Cybersec">Cyber Security</h1>
+        <p class="total-books" style="font-family: 'Dancing Script', cursive;">Total books: <span
+                id="bookCount1"></span></p>
+        <div class="book-section A" id="View-Mode">
+            <!--  -->
+            <!--  -->
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/51yjm1DR01L.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book is designed for IT and security professionals who aim to obtain CompTIA Security+
+                        certification. It covers all the certification exam objectives (domains) of the latest version
+                        of the exam, Sy0-501. Each chapter of the eBook is dedicated to a specific objective and its
+                        sub-objectives and includes free practice questions for that domain.</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/3i465tj11mlaupj/CompTIA_Security_Plus_Exam_Study_Guide.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/61h7DKmKSAL._SL1000_.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book is designed for IT and security professionals who aim to obtain CompTIA Security+
+                        certification. It covers all the certification exam objectives (domains) of the latest version
+                        of the exam, Sy0-501. Each chapter of the eBook is dedicated to a specific objective and its
+                        sub-objectives and includes free practice questions for that domain.</p>
+                    <button><a href="https://www.mediafire.com/file/4aybwr7lq50rkc3/Comptia_Pentest%252B_.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/Linux+ XK0-6.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book is designed for IT and security professionals who aim to obtain CompTIA Security+
+                        certification. It covers all the certification exam objectives (domains) of the latest version
+                        of the exam, Sy0-501. Each chapter of the eBook is dedicated to a specific objective and its
+                        sub-objectives and includes free practice questions for that domain.</p>
+                    <button><a href="https://www.mediafire.com/file/nj7036n40a3b9ek/CompTIA_Linux%252B.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/81t7mKX-iBS.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/fjmngp7bl2pilkp/Certified_Ethical_Hacker_%2528CEH%2529_Version_10_%2528Certification_Guide%2529.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/d012e5ac31cc5f6481c751d29a71b6fa.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book is designed for IT and security professionals who aim to obtain CompTIA Security+
+                        certification. It covers all the certification exam objectives (domains) of the latest version
+                        of the exam, Sy0-501. Each chapter of the eBook is dedicated to a specific objective and its
+                        sub-objectives and includes free practice questions for that domain.</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/smev8qagmmew5yp/Attacking_Network_Protocols__A_Hacker%25E2%2580%2599s_Guide_to_Capture%252C_Analysis%252C_and_Exploitation_%2528_PDFDrive_%2529.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/40042.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/v8tkl3jw7rx0eoh/Black+Hat+Python.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1938.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/lbjj63b2c0f59k0/Hacking_Exposed_Mobile_Security_Secrets_And_Solutions.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/2726.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/6cqiwglt8shbsjs/Hacking_Exposed_Wireless_Security_Secrets_And_Solutions%252C_2nd_Edition.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1936.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/aau1ecvu2pvt5t0/Hacking_Exposed_Malware_and_Rootkits_Security_Secrets_And_Solutions.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/2722.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/uegv2qr7ypc3ads/Hacking_Exposed_Computer_Forensics%252C_2nd_Edition.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/5693.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/fyxw5kaplmy1010/Hacking_Exposed_Linux_3rd_Edition.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1942.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/wectmkgl4c01b8x/Hacking_Exposed_Web_Applications%252C_3rd_Edition.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/Unauthorized-Access.jpg" alt="Unauthorized-Access">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Going beyond current books on privacy and security, Unauthorized Access: The Crisis in Online
+                        Privacy and Security proposes specific solutions to public policy issues pertaining to online
+                        privacy and security. Requiring no technical or legal expertise, the book explains complicated
+                        concepts in clear, straightforward language.</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/f33c1eooq25po1j/Unauthorized_Access_The_Crisis_in_Online_Privacy_a.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/6g6iqg7apf30.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book describes how internet users can become anonymous, secure and free. It gives many free
+                        resources and methods for users who want to go anonymous and protect their personal data from
+                        being accessed or hacked from outside sources. Ethical concerns for anonymous use are also
+                        discussed, along with legal issues that affect freedom and privacy for common citizens who use
+                        the internet.</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/q4d766c6fy67grv/practical-anonymity-hiding-in-plain-sight-online_compress.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/7469.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Cyber Operations: Building, Defending, and Attacking Modern Computer Networks</p>
+                    <button><a href="https://www.mediafire.com/file/icfl3jhbftzl8mw/Cyber_Operations.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/4694.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/f86mrnv3vatksk2/Umts_Security_Book.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/3786.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>This book is made up of five major parts, from basic knowledge to actual hacking code. A beginner
+                        is naturally expected to become a hacker while reading this book.</p>
+                    <button><a href="https://www.mediafire.com/file/6rzph45qhks21zz/Python_Hacking_Essentials.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/4648.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/amef39snbwcrn9q/The_Network_Security_Test_Lab.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/eb1704a8-73ff-43fd-a919-a4001197a9f8.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/y2cyqd09v1z8p03/Web_Hacking_101.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/bb02760c-e4b6-4715-baaa-e324e3763dad.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/qa3xu5e8u9yzuw6/Hacking_For_Dummies.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/e671721a-43f7-4c07-a4f2-833121460cc6.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/ce5ufqvuyctx1p5/Hacking_APIS._Breaking_Web_Application_Programming_Interface.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1750.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/7ohsd8qhut2oe1e/Android_Hackers_Handbook.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/2094.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/i8gkvv1fihem5ud/Network_Security_Hacks_Tips_And_Tools.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/f14366b2-bef1-46eb-9b24-20c176d884fe.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/vqgguv7v6lni7zq/2_Guide_to_the_CISSP_CBK.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/73589.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/t9lqc1z54z4ze5e/Gray_Hat_Hacking_3rd_Edition_Free-73589.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1850.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/tr9bmag1odkrk0a/Data_Analysis_For_Network_Cyber-Security.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1824.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/lva86zaajdt5lhl/Cloud_Security_and_Privacy.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/4833.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/delqyi38uw5dz24/Wireshark_Starter_Book.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/4799.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/amd4ogw0mzjdxd7/Web_PeNetration_Testing_With_Kali_Linux.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/7264.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/pubd0mpcdss23ks/Red_Hat_Linux_Networking_And_System_Administration.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/7266.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/w325q56fuwxlh3r/Running_Linux_5th_Edition.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************** -->
+        </div>
+        <h1 class="sptionalheading" id="Networking">Networking</h1>
+        <p class="total-books" style="font-family: 'Dancing Script', cursive;">Total books: <span
+                id="bookCount2"></span></p>
+        <div class="book-section B" id="View-Mode">
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/ccna-200-301-official-cert-guide-volume-1.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/mq5ltgqe19nbdny/CCNA_200-301_Cert_Guide%252C_Volume_1_eBook_and_Practice_Test.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/CCNAVOL2.jpg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/4rbvouzgj5p99wx/CCNA_200-301_Cert_Guide%252C_Volume_2_eBook_and_Practice_Test.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/indexN.jpeg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/i4h03d5bltvp5ai/CompTIA_Network%252B_.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/nmap-network-exploration-and-security-auditing.jpeg" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/tr1staycnkcvs6l/Nmap_Network_Exploration_and_Security_Auditing_Cookbook.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/f1429cf1-ac71-4205-a340-95d3526a7d0e.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/68jpypl3dncf4j0/Cisco_Software-Defined_Access_%2528Networking_Technology%2529.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/72e31569-6965-44c3-8cb9-a29ef1fb2d0b.webp" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/4rzqpewtor53ch5/Algorithms_and_Networking_for_Computer_Games.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+        </div>
+        <h1 class="sptionalheading" id="Programming">Programming</h1>
+        <p class="total-books" style="font-family: 'Dancing Script', cursive;">Total books: <span
+                id="bookCount3"></span></p>
+        <div class="book-section C" id="View-Mode">
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/78981.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/b34rp8chozth72n/Web_Programming_with_HTML5_CSS_and_JavaScript-78981.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/13737.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/vg6egi8ithzr9pk/Object-Oriented_Programming_C%252B%252B_Simplified.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/13677.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/cx2c74rudvq7uz1/Cpp%252CC123uo00es0119.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/7604.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/udnwv7105hmsh3i/Java_Pocket_Guide_-_PDF_Books.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/72.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/xlbvp69gdpjtu13/Client_Server_Web_Apps_With_Javascript_And_Java.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1748.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/zrxsana5td5slzs/Android_Game_Programming_by_Example.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/asdfasfdasdfdsfas.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/cis14qmur8eqyum/Learning_Python_Network_Programming.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/14577.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/4rztnevqgkuc760/Functional_CSS_Dynamic_HTML_without_JavaScript_PDF.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/555.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a href="https://www.mediafire.com/file/dr20n6jiaq5e189/Html5_And_Css3.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+            <div class="book-card" aria-label="Book">
+                <div class="book-front">
+                    <img src="amiges/booksimgs/1802.png" alt="Book-Cover">
+                    <div class="rating" aria-label="Book rating"></div>
+                </div>
+                <div class="book-back">
+                    <h3>Description</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, aut amet animi iure aspernatur
+                        fugiat atque molestiae ducimus laboriosam neque, magnam eveniet eaque. Dolorem temporibus
+                        laboriosam quaerat praesentium magnam vitae!</p>
+                    <button><a
+                            href="https://www.mediafire.com/file/5i4761mwrhdo1ni/Building_Android_Apps_with_HTML_CSS_and_JavaScript.pdf/file"
+                            target="_blank">Download</a></button>
+                </div>
+            </div>
+        </div>
+        <script>
+            const starFull = '<i class="fas fa-star"></i>',
+                starEmpty = '<i class="far fa-star"></i>';
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach(card => {
+                const ratingDiv = card.querySelector('.rating');
+                var rating = Math.floor(Math.random() * 3) + 3;
+                var ratingStr = starFull.repeat(rating) + starEmpty.repeat(5 - rating);
+                ratingDiv.innerHTML = ratingStr;
+            });
+        </script>
+        <!--  -->
+        <script>
+            let bookElements = document.querySelectorAll('.book-back');
+
+            bookElements.forEach((element) => {
+                let isDown = false;
+                let startY;
+                let scrollTop;
+
+                element.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    startY = e.pageY - element.offsetTop;
+                    scrollTop = element.scrollTop;
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    isDown = false;
+                });
+
+                element.addEventListener('mouseup', () => {
+                    isDown = false;
+                });
+
+                element.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const y = e.pageY - element.offsetTop;
+                    const deltaY = (y - startY);
+                    element.scrollTop = scrollTop - deltaY;
+                });
+            });
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>
